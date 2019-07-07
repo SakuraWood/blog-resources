@@ -1,0 +1,234 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>哈希表 · Sakura&#x27;s blog</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;哈希表&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#哈希表&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;哈希表&lt;/h1&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="哈希表 · Sakura&#x27;s blog"/><meta property="og:type" content="website"/><meta property="og:url" content="https://sakurawood.github.io/blog-resources/"/><meta property="og:description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;哈希表&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#哈希表&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;哈希表&lt;/h1&gt;
+"/><meta property="og:image" content="https://sakurawood.github.io/blog-resources/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://sakurawood.github.io/blog-resources/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/blog-resources/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://sakurawood.github.io/blog-resources/blog/atom.xml" title="Sakura&#x27;s blog Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://sakurawood.github.io/blog-resources/blog/feed.xml" title="Sakura&#x27;s blog Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/blog-resources/js/scrollSpy.js"></script><link rel="stylesheet" href="/blog-resources/css/main.css"/><script src="/blog-resources/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/blog-resources/"><img class="logo" src="/blog-resources/img/favicon.ico" alt="Sakura&#x27;s blog"/><h2 class="headerTitleWithLogo">Sakura&#x27;s blog</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/blog-resources/docs/doc1" target="_self">Docs</a></li><li class=""><a href="/blog-resources/docs/doc4" target="_self">API</a></li><li class=""><a href="/blog-resources/help" target="_self">Help</a></li><li class=""><a href="/blog-resources/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">哈希表</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="哈希表"></a><a href="#哈希表" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>哈希表</h1>
+<p>使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像<code>python</code>中的字典，<code>java</code>中的<code>HashMap</code>，都是基于哈希表实现。但哈希表究竟是啥？</p>
+<h2><a class="anchor" aria-hidden="true" id="哈希是什么"></a><a href="#哈希是什么" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>哈希是什么？</h2>
+<p>(如果觉得废话很多，可以直接看建立哈希表)</p>
+<p>散列（<code>hashing</code>）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值）关联起来，生成一种便于搜索的数据结构（称为散列表）。也译为散列。旧译哈希（误以为是人名而采用了音译）。它也常用作一种资讯安全的实作方法，由一串资料中经过散列算法（<code>Hashing algorithms</code>）计算出来的资料指纹（<code>data fingerprint</code>），经常用来识别档案与资料是否有被窜改，以保证档案与资料确实是由原创者所提供。      ----Wikipedia</p>
+<!-- more -->
+<h2><a class="anchor" aria-hidden="true" id="哈希函数"></a><a href="#哈希函数" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>哈希函数</h2>
+<p>所有的哈希函数都具有如下一个基本特性：如果两个散列值是不相同的（根据同一函数），那么这两个散列值的原始输入也是不相同的。这个特性是散列函数具有确定性的结果，具有这种性质的散列函数称为单向散列函数。</p>
+<h2><a class="anchor" aria-hidden="true" id="哈希表-1"></a><a href="#哈希表-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>哈希表</h2>
+<ul>
+<li><p>若关键字为k，则其值存放在<code>f(k)</code>的存储位置上。由此，不需比较便可直接取得所查记录。称这个对应关系f为散列函数，按这个思想建立的表为散列表。</p></li>
+<li><p>对不同的关键字可能得到同一散列地址，即<code>k1≠k2</code>，而<code>f(k1)=f(k2)</code>，这种现象称为冲突。具有相同函数值的关键字对该散列函数来说称做同义词。综上所述，根据散列函数<code>f(k)</code>和处理冲突的方法将一组关键字映射到一个有限的连续的地址集（区间）上，并以关键字在地址集中的“像”作为记录在表中的存储位置，这种表便称为散列表，这一映射过程称为散列造表或散列，所得的存储位置称散列地址。</p></li>
+<li><p>若对于关键字集合中的任一个关键字，经散列函数映象到地址集合中任何一个地址的概率是相等的，则称此类散列函数为均匀散列函数（<code>Uniform Hash function</code>），这就是使关键字经过散列函数得到一个“随机的地址”，从而减少冲突。</p></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="建立哈希表"></a><a href="#建立哈希表" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>建立哈希表</h3>
+<p>这看了一堆概念，老衲甚为头疼。总的来说，哈希表就是一个具备映射关系的表，你可以通过映射关系由键找到值。有没有现成的例子？当然有，不过你直接用就没意思了。</p>
+<p>反正就是要实现<code>f(k)</code>，即实现<code>key-value</code>的映射关系。我们试着自己实现以下：</p>
+<pre><code class="hljs css language-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Map</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.items=[]
+
+    
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">put</span><span class="hljs-params">(self,k,v)</span>:</span>
+        self.items.append((k,v))
+    
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self,k)</span>:</span>
+        <span class="hljs-keyword">for</span> key,value <span class="hljs-keyword">in</span> self.items:
+            <span class="hljs-keyword">if</span>(k==key):
+                <span class="hljs-keyword">return</span> value
+</code></pre>
+<p>这样实现的<code>Map</code>，查找的时间复杂度为<code>O(n)</code>。
+“这看上去与key没什么关系啊，这不是顺序查找么，逗我呢？”
+这只是一个热身，好吧，下面我们根据定义，来搞一个有映射函数的：</p>
+<pre><code class="hljs css language-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Map</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.items=[<span class="hljs-literal">None</span>]*<span class="hljs-number">100</span>
+    
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hash</span><span class="hljs-params">(self,a)</span>:</span>
+        <span class="hljs-keyword">return</span> a*<span class="hljs-number">1</span>+<span class="hljs-number">0</span>
+    
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">put</span><span class="hljs-params">(self,k,v)</span>:</span>
+        self.items[hash(k)]=v
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self,k)</span>:</span>
+        hashcode=hash(k)
+        <span class="hljs-keyword">return</span> self.items[hashcode]
+</code></pre>
+<p>“这hash函数有点简单啊”
+是的，它是简单，但简单不代表它不是哈希函数，事实上，它是由一种叫直接定址法的方法建立的哈希函数，是一个线性函数：
+<em><em>hash(k)= a</em>k+b</em>*</p>
+<p>“为啥初始化就指定了<code>100</code>容量？”
+要指出的是，这个是必须的。你想通过下标存储并访问，对于数组来说，这不可避免。在<code>JDK</code>源码里，你也可以看到，<code>Java</code>的<code>HashMap</code>的初始容量设成了<code>16</code>。你可能说，你这<code>hash</code>函数，我只要<code>key</code>设为<code>100</code>以上，这程序就废了。是啊，它并不完美。这涉及到扩容的事情，稍后再讲。</p>
+<p>直接定址法的优点很明显，就是它不会产生重复的<code>hash</code>值。但由于它与键值本身有关系，所以当键值分布很散的时候，会浪费大量的存储空间。所以一般是不会用到直接定址法的。</p>
+<!-- more -->
+<h3><a class="anchor" aria-hidden="true" id="处理冲突"></a><a href="#处理冲突" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>处理冲突</h3>
+<p>假如某个<code>hash</code>函数产生了一堆哈希值，而这些哈希值产生了冲突怎么办（实际生产环境中经常发生）？在各种哈希表的实现里，处理冲突是必需的一步。
+比如你定义了一个<code>hash</code>函数：
+<strong>hash(k)=k mod 10</strong>
+假设<code>key</code>序列为：[15,1,24,32,55,64,42,93,82,76]</p>
+<table>
+<thead>
+<tr><th style="text-align:left">0</th><th style="text-align:left">1</th><th style="text-align:left">2</th><th style="text-align:left">3</th><th style="text-align:left">4</th><th style="text-align:left">5</th><th style="text-align:left">6</th><th style="text-align:left">7</th><th style="text-align:left">8</th><th style="text-align:left">9</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"></td><td style="text-align:left">1</td><td style="text-align:left">32</td><td style="text-align:left">93</td><td style="text-align:left">24</td><td style="text-align:left">15</td><td style="text-align:left">76</td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td></tr>
+<tr><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left">42</td><td style="text-align:left"></td><td style="text-align:left">64</td><td style="text-align:left">55</td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td></tr>
+<tr><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left">82</td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td></tr>
+</tbody>
+</table>
+<p>一趟下来，冲突的元素有四个，下面有几个办法。</p>
+<h4><a class="anchor" aria-hidden="true" id="开放定址法"></a><a href="#开放定址法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>开放定址法</h4>
+<p>开放定址法就是产生冲突之后去寻找下一个空闲的空间。函数定义为：</p>
+<p><img src="/images/hash_2.png" alt="hash_table"></p>
+<p>其中，<code>hash(key)</code>是哈希函数，<code>di</code>是增量序列，<code>i</code>为已冲突的次数。</p>
+<ul>
+<li>线性探测法
+<img src="/images/linear_probing.png" alt="hash_table"></li>
+</ul>
+<p>即<code>di=i</code>，或者其它线性函数。相当于逐个探测存放地址的表，直到查找到一个空单元，然后放置在该单元。</p>
+<p><strong>[15,1,24,32,55,64,42,93,82,76]</strong></p>
+<p>可以看到，在55之前都还没冲突：</p>
+<table>
+<thead>
+<tr><th style="text-align:left">0</th><th style="text-align:left">1</th><th style="text-align:left">2</th><th style="text-align:left">3</th><th style="text-align:left">4</th><th style="text-align:left">5</th><th style="text-align:left">6</th><th style="text-align:left">7</th><th style="text-align:left">8</th><th style="text-align:left">9</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"></td><td style="text-align:left">1</td><td style="text-align:left">32</td><td style="text-align:left"></td><td style="text-align:left">24</td><td style="text-align:left">15</td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td></tr>
+</tbody>
+</table>
+<p>此时插入55，与15冲突，应用线性探测，此时i=1，可以得到：</p>
+<table>
+<thead>
+<tr><th style="text-align:left">0</th><th style="text-align:left">1</th><th style="text-align:left">2</th><th style="text-align:left">3</th><th style="text-align:left">4</th><th style="text-align:left">5</th><th style="text-align:left">6</th><th style="text-align:left">7</th><th style="text-align:left">8</th><th style="text-align:left">9</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"></td><td style="text-align:left">1</td><td style="text-align:left">32</td><td style="text-align:left"></td><td style="text-align:left">24</td><td style="text-align:left">15</td><td style="text-align:left">55</td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td></tr>
+</tbody>
+</table>
+<p>再插入64，冲突不少，要取到i=3：</p>
+<table>
+<thead>
+<tr><th style="text-align:left">0</th><th style="text-align:left">1</th><th style="text-align:left">2</th><th style="text-align:left">3</th><th style="text-align:left">4</th><th style="text-align:left">5</th><th style="text-align:left">6</th><th style="text-align:left">7</th><th style="text-align:left">8</th><th style="text-align:left">9</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"></td><td style="text-align:left">1</td><td style="text-align:left">32</td><td style="text-align:left"></td><td style="text-align:left">24</td><td style="text-align:left">15</td><td style="text-align:left">55</td><td style="text-align:left">64</td><td style="text-align:left"></td><td style="text-align:left"></td></tr>
+</tbody>
+</table>
+<p>插入42，i=1：</p>
+<table>
+<thead>
+<tr><th style="text-align:left">0</th><th style="text-align:left">1</th><th style="text-align:left">2</th><th style="text-align:left">3</th><th style="text-align:left">4</th><th style="text-align:left">5</th><th style="text-align:left">6</th><th style="text-align:left">7</th><th style="text-align:left">8</th><th style="text-align:left">9</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"></td><td style="text-align:left">1</td><td style="text-align:left">32</td><td style="text-align:left">42</td><td style="text-align:left">24</td><td style="text-align:left">15</td><td style="text-align:left">55</td><td style="text-align:left">64</td><td style="text-align:left"></td><td style="text-align:left"></td></tr>
+</tbody>
+</table>
+<p>插入93，i=5：</p>
+<table>
+<thead>
+<tr><th style="text-align:left">0</th><th style="text-align:left">1</th><th style="text-align:left">2</th><th style="text-align:left">3</th><th style="text-align:left">4</th><th style="text-align:left">5</th><th style="text-align:left">6</th><th style="text-align:left">7</th><th style="text-align:left">8</th><th style="text-align:left">9</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"></td><td style="text-align:left">1</td><td style="text-align:left">32</td><td style="text-align:left">42</td><td style="text-align:left">24</td><td style="text-align:left">15</td><td style="text-align:left">55</td><td style="text-align:left">64</td><td style="text-align:left">93</td><td style="text-align:left"></td></tr>
+</tbody>
+</table>
+<p>插入82，i=7：</p>
+<table>
+<thead>
+<tr><th style="text-align:left">0</th><th style="text-align:left">1</th><th style="text-align:left">2</th><th style="text-align:left">3</th><th style="text-align:left">4</th><th style="text-align:left">5</th><th style="text-align:left">6</th><th style="text-align:left">7</th><th style="text-align:left">8</th><th style="text-align:left">9</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"></td><td style="text-align:left">1</td><td style="text-align:left">32</td><td style="text-align:left">42</td><td style="text-align:left">24</td><td style="text-align:left">15</td><td style="text-align:left">55</td><td style="text-align:left">64</td><td style="text-align:left">93</td><td style="text-align:left">82</td></tr>
+</tbody>
+</table>
+<p>插入76，i=4：</p>
+<table>
+<thead>
+<tr><th style="text-align:left">0</th><th style="text-align:left">1</th><th style="text-align:left">2</th><th style="text-align:left">3</th><th style="text-align:left">4</th><th style="text-align:left">5</th><th style="text-align:left">6</th><th style="text-align:left">7</th><th style="text-align:left">8</th><th style="text-align:left">9</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left">76</td><td style="text-align:left">1</td><td style="text-align:left">32</td><td style="text-align:left">42</td><td style="text-align:left">24</td><td style="text-align:left">15</td><td style="text-align:left">55</td><td style="text-align:left">64</td><td style="text-align:left">93</td><td style="text-align:left">82</td></tr>
+</tbody>
+</table>
+<p>发现越到后面，冲突的越来越离谱，因为表的大小选择也很重要，此例中选择了10作为表的大小，所以容易产生冲突。<strong>一般来讲，越是质数，mod取余就越可能分布的均匀</strong>。</p>
+<ul>
+<li><p>平方探测
+<img src="/images/quadratic_probing.png" alt="hash_table">
+这称作平方探测法，一个道理，也是查找到一个空单元然后放进去。这里就不一步一步说明了=。=</p></li>
+<li><p>伪随机探测
+di是一个随机数序列。
+“随机数？那get的时候咋办？也是随机数啊，怎么确保一致？”
+所以说了，是伪随机数。其实我们在计算机里接触的几乎都是伪随机数，只要是由确定算法生成的，都是伪随机。只要种子确定，生成的序列都是一样的。序列都一样，那不就可以了么=。=</p></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="链表法"></a><a href="#链表法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>链表法</h4>
+<p>这是另外一种类型解决冲突的办法，散列到同一位置的元素，不是继续往下探测，而是在这个位置是一个链表，这些元素则都放到这一个链表上。<code>java</code>的<code>HashMap</code>就采用的是这个。</p>
+<h4><a class="anchor" aria-hidden="true" id="再散列"></a><a href="#再散列" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>再散列</h4>
+<p>如果一次不够，就再来一次，直到冲突不再发生。</p>
+<h4><a class="anchor" aria-hidden="true" id="建立公共溢出区"></a><a href="#建立公共溢出区" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>建立公共溢出区</h4>
+<p>将哈希表分为基本表和溢出表两部分，凡是和基本表发生冲突的元素，一律填入溢出表(注意：在这个方法里面是把元素分开两个表来存储)。</p>
+<p>说了这么一堆，举个例子，用开放地址法（线性探测）：</p>
+<pre><code class="hljs css language-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Map</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.hash_table=[[<span class="hljs-literal">None</span>,<span class="hljs-literal">None</span>]<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">11</span>)]
+    
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hash</span><span class="hljs-params">(self,k,i)</span>:</span>
+        h_value=(k+i)%<span class="hljs-number">11</span>
+        <span class="hljs-keyword">if</span> self.hash_table[h_value][<span class="hljs-number">0</span>]==k:
+            <span class="hljs-keyword">return</span> h_value
+        <span class="hljs-keyword">if</span> self.hash_table[h_value][<span class="hljs-number">0</span>]!=<span class="hljs-literal">None</span>:
+            i+=<span class="hljs-number">1</span>
+            h_value=self.hash(k,i)
+        <span class="hljs-keyword">return</span> h_value
+ 
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">put</span><span class="hljs-params">(self,k,v)</span>:</span>
+        hash_v=self.hash(k,<span class="hljs-number">0</span>)
+        self.hash_table[hash_v][<span class="hljs-number">0</span>]=k
+        self.hash_table[hash_v][<span class="hljs-number">1</span>]=v
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self,k)</span>:</span>
+        hash_v=self.hash(k,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> self.hash_table[hash_v][<span class="hljs-number">1</span>]
+</code></pre>
+<p>“能不能不要定死长度？11个完全不够用啊”</p>
+<p>这是刚才的问题，所以有了另外一个概念，叫做载荷因子（load factor）。载荷因子的定义为：
+<strong>α= 已有的元素个数/表的长度</strong></p>
+<p><strong>由于表长是定值， α与“填入表中的元素个数”成正比，所以， α越大，表明填入表中的元素越多，产生冲突的可能性就越大</strong>；反之，α越小，标明填入表中的元素越少，产生冲突的可能性就越小。实际上，散列表的平均查找长度是载荷因子 α的函数，只是不同处理冲突的方法有不同的函数。</p>
+<p>所以当到达一定程度，表的长度是要变的，即<code>resize</code>=。=像<code>java</code>的<code>HashMap</code>，载荷因子被设计为<code>0.75</code>；超过<code>0.8</code>，<code>cpu</code>的<code>cache missing</code>会急剧上升。可以看下这篇讨论：
+<a href="https://www.zhihu.com/question/22911718">https://www.zhihu.com/question/22911718</a></p>
+<p>具体扩容多少，一般选择扩到已插入元素数量的两倍，<code>java</code>也是这么做的。</p>
+<p>接着上面，再升级一下我们的<code>map</code>：</p>
+<pre><code class="hljs css language-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Map</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.capacity=<span class="hljs-number">11</span>
+        self.hash_table=[[<span class="hljs-literal">None</span>,<span class="hljs-literal">None</span>]<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(self.capacity)]
+        self.num=<span class="hljs-number">0</span>
+        self.load_factor=<span class="hljs-number">0.75</span>
+    
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hash</span><span class="hljs-params">(self,k,i)</span>:</span>
+        h_value=(k+i)%self.capacity
+        <span class="hljs-keyword">if</span> self.hash_table[h_value][<span class="hljs-number">0</span>]==k:
+            <span class="hljs-keyword">return</span> h_value
+        <span class="hljs-keyword">if</span> self.hash_table[h_value][<span class="hljs-number">0</span>]!=<span class="hljs-literal">None</span>:
+            i+=<span class="hljs-number">1</span>
+            h_value=self.hash(k,i)
+        <span class="hljs-keyword">return</span> h_value
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">resize</span><span class="hljs-params">(self)</span>:</span>
+        self.capacity=self.num*<span class="hljs-number">2</span> <span class="hljs-comment">#扩容到原有元素数量的两倍</span>
+        temp=self.hash_table[:]
+        self.hash_table=[[<span class="hljs-literal">None</span>,<span class="hljs-literal">None</span>]<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(self.capacity)] 
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> temp:
+            <span class="hljs-keyword">if</span>(i[<span class="hljs-number">0</span>]!=<span class="hljs-literal">None</span>):  <span class="hljs-comment">#把原来已有的元素存入</span>
+                hash_v=self.hash(i[<span class="hljs-number">0</span>],<span class="hljs-number">0</span>)
+                self.hash_table[hash_v][<span class="hljs-number">0</span>]=i[<span class="hljs-number">0</span>]
+                self.hash_table[hash_v][<span class="hljs-number">1</span>]=i[<span class="hljs-number">1</span>]
+ 
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">put</span><span class="hljs-params">(self,k,v)</span>:</span>
+        hash_v=self.hash(k,<span class="hljs-number">0</span>)
+        self.hash_table[hash_v][<span class="hljs-number">0</span>]=k
+        self.hash_table[hash_v][<span class="hljs-number">1</span>]=v
+        self.num+=<span class="hljs-number">1</span>                 <span class="hljs-comment">#暂不考虑key重复的情况，具体自己可以优化</span>
+        <span class="hljs-keyword">if</span>(self.num/len(self.hash_table)&gt;self.load_factor):<span class="hljs-comment"># 如果比例大于载荷因子</span>
+            self.resize()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self,k)</span>:</span>
+        hash_v=self.hash(k,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> self.hash_table[hash_v][<span class="hljs-number">1</span>]
+</code></pre>
+<p>看上面的函数，可以看到resize是一个比较耗时的操作，更何况作为一个<code>python</code>小白的我写的不是很好。可以去看一下<code>Java</code>的<code>HashMap</code>的<code>hash</code>方法和<code>resize</code>方法，其中的思路要精妙的多。</p>
+<p>关于哈希表，原理的东西都基本差不多了。可以看到，它本质要解决的是查找时间的问题。如果顺序查找的话，时间复杂度为<code>O(n)</code>；而哈希表，时间复杂度则为<code>O(1)</code>！直接甩了一个次元有木有，这也就是为什么在大量数据存储查找的时候，哈希表得到大量应用的原因。</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#哈希是什么">哈希是什么？</a></li><li><a href="#哈希函数">哈希函数</a></li><li><a href="#哈希表-1">哈希表</a><ul class="toc-headings"><li><a href="#建立哈希表">建立哈希表</a></li><li><a href="#处理冲突">处理冲突</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/blog-resources/" class="nav-home"><img src="/blog-resources/img/favicon.ico" alt="Sakura&#x27;s blog" width="66" height="58"/></a><div><h5>Docs</h5><a href="/blog-resources/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/blog-resources/docs/en/doc2.html">Guides (or other categories)</a><a href="/blog-resources/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/blog-resources/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog-resources/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/blog-resources/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Lee Sure(SakuraWood)</section></footer></div></body></html>

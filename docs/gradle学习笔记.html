@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>gradle 学习笔记 · Sakura&#x27;s blog</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;gradle上路篇&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#gradle上路篇&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;gradle上路篇&lt;/h1&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="gradle 学习笔记 · Sakura&#x27;s blog"/><meta property="og:type" content="website"/><meta property="og:url" content="https://sakurawood.github.io/blog-resources/"/><meta property="og:description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;gradle上路篇&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#gradle上路篇&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;gradle上路篇&lt;/h1&gt;
+"/><meta property="og:image" content="https://sakurawood.github.io/blog-resources/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://sakurawood.github.io/blog-resources/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/blog-resources/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://sakurawood.github.io/blog-resources/blog/atom.xml" title="Sakura&#x27;s blog Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://sakurawood.github.io/blog-resources/blog/feed.xml" title="Sakura&#x27;s blog Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/blog-resources/js/scrollSpy.js"></script><link rel="stylesheet" href="/blog-resources/css/main.css"/><script src="/blog-resources/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/blog-resources/"><img class="logo" src="/blog-resources/img/favicon.ico" alt="Sakura&#x27;s blog"/><h2 class="headerTitleWithLogo">Sakura&#x27;s blog</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/blog-resources/docs/doc1" target="_self">Docs</a></li><li class=""><a href="/blog-resources/docs/doc4" target="_self">API</a></li><li class=""><a href="/blog-resources/help" target="_self">Help</a></li><li class=""><a href="/blog-resources/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">gradle 学习笔记</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="gradle上路篇"></a><a href="#gradle上路篇" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>gradle上路篇</h1>
+<p>作为写<code>Android</code>的人（虽然现在重心已经偏向<code>js</code>），当遇上<code>gradle</code>编译时各种各样的错误，，你却不知道怎么办，有时虽然解决了却不知道所以然，我想这样的经历绝不只有我一个。</p>
+<p>如果说为什么对<code>gradle</code>始终很糊涂，那么<code>Android Studio</code>将要背很大的锅，因为<code>IDE</code>为你生成好了构建脚本，所以你无需花很多精力去了解它，你的任务更多只是在业务代码本身，事实上，学习gradle你还可以更加地了解<code>android</code>程序整个构建过程，在这一点上，恐怕很多人也跟当初我一样是一知半解的。</p>
+<h2><a class="anchor" aria-hidden="true" id="为什么是buildgradle"></a><a href="#为什么是buildgradle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>为什么是build.gradle?</h2>
+<p>对呀，为什么是这个文件？其实它没有什么特别的，只不过因为它是默认的构建脚本。所以好事者说，我想执行自己的怎么办？比如<code>a.gradle</code>？ 好，那么其实你可以执行以下命令：</p>
+<pre><code class="hljs">$ gradle -<span class="hljs-selector-tag">b</span> <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.gradle</span> yourtask
+</code></pre>
+<p>这样子你可以将构建脚本替换成你想执行的<code>a.gradle</code>。可能对于一直点击<img src="/images/run.png" alt="run">图标的同学来说，<code>gradle</code>命令行甚至都没用过，这个<code>yourtask</code>是什么鬼？其实在你点击了<img src="/images/run.png" alt="run">图标之后，<code>gradle</code>的构建脚本可是做了大量的工作，之后我会细说。</p>
+<h2><a class="anchor" aria-hidden="true" id="groovy语言"></a><a href="#groovy语言" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Groovy语言</h2>
+<p><code>gradle</code>脚本其实是基于一个叫<code>Groovy</code>的语言编写的，它的语法相当友好，兼容<code>java</code>语法，有着一些<code>java</code>语言并没有的特性，比如函数传参。但事实上，你并不需要过多了解这门语言，对于<code>gradle</code>脚本来说，掌握部分就够用了。</p>
+<p>我并不想在这里介绍<code>Groovy</code>语言，有闲时间我建议直接看<code>Groovy</code>的官方指南：</p>
+<p><a href="http://groovy-lang.org/documentation.html">http://groovy-lang.org/documentation.html</a></p>
+<!-- more -->
+## 项目示例
+有些人不想看也不想了解`Groovy`语言，那也没事，我直接拿个例子，看完你就想去看了，拿个android工程的构建脚本，先来最简单的，用`Android Studio`创建完一个新的`android`工程之后，`IDE`给你准备了大致上这样的东西：
+![project](/images/android_new_project.png)
+<p>刚才不是说<code>build.gradle</code>是默认的吗，怎么两个啊？所以，很多人在开发时会切到真实的目录下去，像这样的：
+<img src="/images/real_project.png" alt="project"></p>
+<p>来看看项目根目录下的<code>build.gradle</code>:</p>
+<pre><code class="hljs"><span class="hljs-comment">// Top-level build file where you can add configuration options common to all sub-projects/modules.</span>
+
+<span class="hljs-keyword">buildscript</span> {
+    <span class="hljs-keyword">repositories</span> {
+        jcenter()
+    }
+    <span class="hljs-keyword">dependencies</span> {
+        <span class="hljs-keyword">classpath</span> <span class="hljs-string">'com.android.tools.build:gradle:2.2.3'</span>
+
+        <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> Do not place your application dependencies here; they belong</span>
+        <span class="hljs-comment">// in the individual module build.gradle files</span>
+    }
+}
+
+<span class="hljs-keyword">allprojects</span> {
+    <span class="hljs-keyword">repositories</span> {
+        jcenter()
+    }
+}
+
+<span class="hljs-keyword">task</span> clean(type: <span class="hljs-keyword">Delete</span>) {
+    <span class="hljs-keyword">delete</span> rootProject.buildDir
+}
+</code></pre>
+<p>整个<code>gradle</code>构建脚本看上去具有拆分式<code>JSON</code>语法，先看最下面，这里定义了一个<code>task</code>，叫做<code>clean</code>，<code>task</code>是<code>gradle</code>内置的定义任务的关键字，不用我说你也知道<code>clean</code>这是干嘛用的，当你点击<img src="/images/clean_project.png" alt="project">这个的时候，它就在执行这个任务。</p>
+<p>另外这个，</p>
+<pre><code class="hljs"><span class="hljs-keyword">dependencies</span> {
+        <span class="hljs-keyword">classpath</span> <span class="hljs-string">'com.android.tools.build:gradle:2.2.3'</span>
+
+        <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> Do not place your application dependencies here; they belong</span>
+        <span class="hljs-comment">// in the individual module build.gradle files</span>
+    }
+</code></pre>
+<p><code>dependencies</code>表示的是项目依赖，而这里定义了所引用的<code>gradle</code>插件， 好吧，这个<code>'com.android.tools.build:gradle:2.2.3'</code>它来自哪？当然是从项目存储库里取，<code>repositories{}</code>定义了依赖的源链接库。</p>
+<p>注意，<code>gradle</code>并不是专门为<code>android</code>而生，根目录下的<code>build.gradle</code>使用的可是<code>gradle</code>自带的<code>Build script blocks</code>,
+像<code>allprojects{}</code>,<code>repositories{}</code>,<code>dependencies{}</code>等等（wtf? 请参阅<a href="https://docs.gradle.org/current/dsl/">https://docs.gradle.org/current/dsl/</a>）。</p>
+<p>好了，我们再继续看看<code>app</code>目录下的<code>build.gradle</code>：</p>
+<pre><code class="hljs">apply plugin: <span class="hljs-string">'com.android.application'</span>
+
+android {
+    compileSdkVersion <span class="hljs-number">25</span>
+    buildToolsVersion <span class="hljs-string">"25.0.2"</span>
+    defaultConfig {
+        applicationId <span class="hljs-string">"com.example.administrator.myapplication"</span>
+        minSdkVersion <span class="hljs-number">15</span>
+        targetSdkVersion <span class="hljs-number">25</span>
+        versionCode <span class="hljs-number">1</span>
+        versionName <span class="hljs-string">"1.0"</span>
+    }
+    buildTypes {
+        release {
+            minifyEnabled <span class="hljs-keyword">false</span>
+            proguardFiles getDefaultProguardFile(<span class="hljs-string">'proguard-android.txt'</span>), <span class="hljs-string">'proguard-rules.pro'</span>
+        }
+    }
+}
+
+<span class="hljs-keyword">dependencies</span> {
+    <span class="hljs-keyword">compile</span> <span class="hljs-keyword">fileTree</span>(dir: <span class="hljs-string">'libs'</span>, <span class="hljs-keyword">include</span>: [<span class="hljs-string">'*.jar'</span>])
+    androidTestCompile(<span class="hljs-string">'com.android.support.test.espresso:espresso-core:2.2.2'</span>, {
+        <span class="hljs-keyword">exclude</span> <span class="hljs-keyword">group</span>: <span class="hljs-string">'com.android.support'</span>, module: <span class="hljs-string">'support-annotations'</span>
+    })
+    <span class="hljs-keyword">compile</span> <span class="hljs-string">'com.android.support:appcompat-v7:25.1.0'</span>
+    testCompile <span class="hljs-string">'junit:junit:4.12'</span>
+}
+
+</code></pre>
+<p>第一行说明你引用了一个<code>gradle</code>插件<code>com.android.application</code>,就好比你在写<code>java</code>代码时所引用的包一样，那这个包在哪取？就是之前根目录下的<code>build.gradle</code>所定义的<code>com.android.tools.build:gradle:2.2.3</code>插件。</p>
+<p>既然引用了插件，当然就可以开始用插件里的东西了，所以<code>android{}</code>标签来了，注意只有<code>compileSdkVersion</code>跟<code>buildToolsVersion</code>是必须的，除此之外你可以定义一切不超出插件语法范围的配置。进一步的<code>android gradle</code>插件配置，可以参考<a href="http://tools.android.youdaxue.com/tech-docs/new-build-system/user-guide">http://tools.android.youdaxue.com/tech-docs/new-build-system/user-guide</a>。</p>
+<pre><code class="hljs">defaultConfig {
+        applicationId <span class="hljs-string">"com.example.administrator.myapplication"</span>         <span class="hljs-comment">//app的id</span>
+        minSdkVersion <span class="hljs-number">15</span>                                                <span class="hljs-comment">//最低sdk版本号</span>
+        targetSdkVersion <span class="hljs-number">25</span>                                             <span class="hljs-comment">//目标sdk版本号</span>
+        versionCode <span class="hljs-number">1</span>                                                   <span class="hljs-comment">//应用版本号</span>
+        versionName <span class="hljs-string">"1.0"</span>                                               <span class="hljs-comment">//应用版本名</span>
+    }
+</code></pre>
+<p>你会发现<code>defaultConfig{}</code>里面定义的其实都是可以在<code>manifest.xml</code>中可以定义的。</p>
+<p><code>buildTypes</code>代表构建类型，用于控制构建和包装应用的方式。<code>android</code>工程默认有两个构建类型，一个是<code>release</code>,一个是<code>debug</code>。有些人跃跃欲试了，这是不是就是多渠道打包了啊？嗯，有点接近，但并不是。插件额外定义了另外一个<code>block</code>，用以构建面向用户的版本，这就是<code>productFlavors</code>(产品风格)。</p>
+<p>假如发布应用，一个收费版和一个免费版的，则可以这样定义：</p>
+<pre><code class="hljs">   <span class="hljs-section">productFlavors</span> {
+        <span class="hljs-section">free</span> {
+            <span class="hljs-attribute">applicationId</span> <span class="hljs-string">"com.example.administrator.myapplication.free"</span>
+        }
+        paid {
+            <span class="hljs-attribute">applicationId</span> <span class="hljs-string">"com.example.administrator.myapplication.paid"</span>
+        }
+    }
+</code></pre>
+<p>你也看到了，其实所有可以放进<code>defaultConfig{}</code>里的东西，都可以放到<code>productFlavors</code>中，如有重复项则会覆盖掉默认配置。</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#为什么是buildgradle">为什么是build.gradle?</a></li><li><a href="#groovy语言">Groovy语言</a></li><li><a href="#项目示例">项目示例</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/blog-resources/" class="nav-home"><img src="/blog-resources/img/favicon.ico" alt="Sakura&#x27;s blog" width="66" height="58"/></a><div><h5>Docs</h5><a href="/blog-resources/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/blog-resources/docs/en/doc2.html">Guides (or other categories)</a><a href="/blog-resources/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/blog-resources/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog-resources/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/blog-resources/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Lee Sure(SakuraWood)</section></footer></div></body></html>

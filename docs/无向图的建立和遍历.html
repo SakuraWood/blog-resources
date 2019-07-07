@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>无向图的建立与遍历 · Sakura&#x27;s blog</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;无向图的建立和遍历邻接矩阵法&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#无向图的建立和遍历邻接矩阵法&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;无向图的建立和遍历(邻接矩阵法)&lt;/h1&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="无向图的建立与遍历 · Sakura&#x27;s blog"/><meta property="og:type" content="website"/><meta property="og:url" content="https://sakurawood.github.io/blog-resources/"/><meta property="og:description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;无向图的建立和遍历邻接矩阵法&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#无向图的建立和遍历邻接矩阵法&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;无向图的建立和遍历(邻接矩阵法)&lt;/h1&gt;
+"/><meta property="og:image" content="https://sakurawood.github.io/blog-resources/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://sakurawood.github.io/blog-resources/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/blog-resources/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://sakurawood.github.io/blog-resources/blog/atom.xml" title="Sakura&#x27;s blog Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://sakurawood.github.io/blog-resources/blog/feed.xml" title="Sakura&#x27;s blog Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/blog-resources/js/scrollSpy.js"></script><link rel="stylesheet" href="/blog-resources/css/main.css"/><script src="/blog-resources/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/blog-resources/"><img class="logo" src="/blog-resources/img/favicon.ico" alt="Sakura&#x27;s blog"/><h2 class="headerTitleWithLogo">Sakura&#x27;s blog</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/blog-resources/docs/doc1" target="_self">Docs</a></li><li class=""><a href="/blog-resources/docs/doc4" target="_self">API</a></li><li class=""><a href="/blog-resources/help" target="_self">Help</a></li><li class=""><a href="/blog-resources/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">无向图的建立与遍历</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="无向图的建立和遍历邻接矩阵法"></a><a href="#无向图的建立和遍历邻接矩阵法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>无向图的建立和遍历(邻接矩阵法)</h1>
+<h2><a class="anchor" aria-hidden="true" id="图的定义"></a><a href="#图的定义" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>图的定义</h2>
+<p>图就是由一组顶点和一组能连接各个顶点间的边组成。</p>
+<p>连通图：如果从任意一个顶点都存在一条路径到达另一个任意顶点，就称为连通图，一个非连通图由若干连通的部分组成，都称为极大连通子图。</p>
+<p>无向图：即连接两个顶点的边是没有方向的。</p>
+<h2><a class="anchor" aria-hidden="true" id="图的表示"></a><a href="#图的表示" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>图的表示</h2>
+<p>图在数据结构上可以用邻接表和邻接矩阵表示。我选择邻接矩阵，为啥？不为啥，就是因为我懒，邻接矩阵简单。</p>
+<p><img src="/images/matrix_3x3.png" alt="heap_sort"></p>
+<p>上面就是一个邻接矩阵，它代表了三个点，但没有边。默认顶点到它本身是没有边的，我在此邻接矩阵中用-1表示。此外1表示两顶点间有边，0则表示无。</p>
+<h2><a class="anchor" aria-hidden="true" id="图的遍历"></a><a href="#图的遍历" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>图的遍历</h2>
+<p>一般我们说到图的遍历，就会提到深度优先搜索（DFS）和广度优先搜索（BFS）。</p>
+<!-- more -->
+<h3><a class="anchor" aria-hidden="true" id="深度优先搜索"></a><a href="#深度优先搜索" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>深度优先搜索</h3>
+<ul>
+<li>思想：假设初始状态是图中所有顶点均未被访问，则从某个顶点v出发，首先访问该顶点，然后依次从它的各个未被访问的邻接点出发深度优先搜索遍历图，直至图中所有和v有路径相通的顶点都被访问到。 若此时尚有其他顶点未被访问到，则另选一个未被访问的顶点作起始点，重复上述过程，直至图中所有顶点都被访问到为止。显然，深度优先搜索是一个递归的过程。</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="广度优先搜索"></a><a href="#广度优先搜索" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>广度优先搜索</h3>
+<ul>
+<li>思想：从图中某顶点v出发，在访问了v之后依次访问v的各个未曾访问过的邻接点，然后分别从这些邻接点出发依次访问它们的邻接点，并使得“先被访问的顶点的邻接点先于后被访问的顶点的邻接点被访问，直至图中所有已被访问的顶点的邻接点都被访问到。如果此时图中尚有顶点未被访问，则需要另选一个未曾被访问过的顶点作为新的起始点，重复上述过程，直至图中所有顶点都被访问到为止。换句话说，广度优先搜索遍历图的过程是以v为起点，由近至远，依次访问和v有路径相通且路径长度为1,2...的顶点。</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="举例"></a><a href="#举例" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>举例</h3>
+<p>拿个例子说，如下的图：</p>
+<p><img src="/images/graph_1.png" alt="graph"></p>
+<p>深度优先搜索遍历顺序为： 6,12,25,32,39,17,56
+广度优先搜索遍历顺序为： 6,12,17,25,32,39,56</p>
+<p>代码如下：</p>
+<pre><code class="hljs css language-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Graph</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,maps,edgeNum=<span class="hljs-number">0</span>)</span>:</span>
+        self.map=maps
+        self.nodeNum=len(maps)
+        self.edgeNum=edgeNum
+    
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getNodeNum</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.nodeNum
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getEdgeNum</span><span class="hljs-params">(self)</span>:</span>
+        self.edgeNum=<span class="hljs-number">0</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(self.nodeNum):
+            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(self.nodeNum-i):
+                <span class="hljs-keyword">if</span> self.map[i][j+i]==<span class="hljs-number">1</span>:
+                    self.edgeNum+=<span class="hljs-number">1</span>
+        <span class="hljs-keyword">return</span> self.edgeNum
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insertNode</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(self.nodeNum):
+            self.map[i].append(<span class="hljs-number">0</span>)
+        self.nodeNum+=<span class="hljs-number">1</span>
+        ls=[<span class="hljs-number">0</span>]*self.nodeNum
+        self.map.append(ls)
+
+    <span class="hljs-comment"># 这个没有删除，只是归零，但顶点还在</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">deleteNode</span><span class="hljs-params">(self,x)</span>:</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(self.nodeNum):
+            <span class="hljs-keyword">if</span> self.map[i][x]==<span class="hljs-number">1</span>:
+                self.map[i][x]=<span class="hljs-number">0</span>
+                self.edgeNum-=<span class="hljs-number">1</span>
+            <span class="hljs-keyword">if</span> self.map[x][i]==<span class="hljs-number">1</span>:
+                self.map[x][i]=<span class="hljs-number">0</span>
+                self.edgeNum-=<span class="hljs-number">1</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">addEdge</span><span class="hljs-params">(self,x,y)</span>:</span>
+        <span class="hljs-keyword">if</span> x&lt;y:
+            <span class="hljs-keyword">if</span> self.map[x][y]==<span class="hljs-number">0</span>:
+                self.map[x][y]=<span class="hljs-number">1</span>
+                self.edgeNum+=<span class="hljs-number">1</span>
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">if</span> self.map[y][x]==<span class="hljs-number">0</span>:
+                self.map[y][x]=<span class="hljs-number">1</span>
+                self.edgeNum+=<span class="hljs-number">1</span>
+
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">removeEdge</span><span class="hljs-params">(self,x,y)</span>:</span>
+        <span class="hljs-keyword">if</span> self.map[x][y]==<span class="hljs-number">1</span>:
+            self.map[x][y]=<span class="hljs-number">0</span>
+            self.edgeNum-=<span class="hljs-number">1</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">BFSearch</span><span class="hljs-params">(self)</span>:</span>
+        visited=[<span class="hljs-number">0</span>]*self.nodeNum
+        queue=[]
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bfs</span><span class="hljs-params">(self,i)</span>:</span>
+            <span class="hljs-keyword">print</span> i
+            
+            <span class="hljs-keyword">if</span>(visited[i]==<span class="hljs-number">0</span>):
+                visited[i]=<span class="hljs-number">1</span>
+                <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(self.nodeNum):
+                    <span class="hljs-keyword">if</span>(self.map[i][j]==<span class="hljs-number">1</span> <span class="hljs-keyword">and</span> visited[j]==<span class="hljs-number">0</span>):
+                        queue.append(j)
+                <span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> queue:
+                    <span class="hljs-keyword">if</span>(visited[k]==<span class="hljs-number">0</span>):
+                        bfs(self,k)
+                <span class="hljs-keyword">del</span> queue[:]
+                
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(self.nodeNum):
+            <span class="hljs-keyword">if</span>(visited[i]==<span class="hljs-number">0</span>):
+                bfs(self,i)
+    
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">DFSearch</span><span class="hljs-params">(self)</span>:</span>
+        visited=[<span class="hljs-number">0</span>]*self.nodeNum
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dfs</span><span class="hljs-params">(self,i)</span>:</span>
+           <span class="hljs-keyword">print</span> i
+           <span class="hljs-keyword">if</span>(visited[i]==<span class="hljs-number">0</span>):
+               visited[i]=<span class="hljs-number">1</span>
+               <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(self.nodeNum-i):
+                    <span class="hljs-keyword">if</span>(self.map[i][j+i]==<span class="hljs-number">1</span> <span class="hljs-keyword">and</span> visited[j+i]==<span class="hljs-number">0</span>):
+                        dfs(self,j+i)
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(self.nodeNum):
+            <span class="hljs-keyword">if</span>(visited[i]==<span class="hljs-number">0</span>):
+                dfs(self,i)
+
+ 
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test</span><span class="hljs-params">()</span>:</span>
+    maps=[[<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>],
+    [<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>],
+    [<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>]]
+    G=Graph(maps)
+    <span class="hljs-keyword">print</span> G.getNodeNum()
+    G.insertNode()
+    G.insertNode()
+    G.insertNode()
+    <span class="hljs-keyword">print</span> G.getNodeNum()
+    
+    <span class="hljs-keyword">print</span> G.getEdgeNum()
+    G.addEdge(<span class="hljs-number">1</span>,<span class="hljs-number">4</span>)
+    <span class="hljs-keyword">print</span> G.getEdgeNum()
+    G.addEdge(<span class="hljs-number">4</span>,<span class="hljs-number">1</span>)
+
+    G.addEdge(<span class="hljs-number">4</span>,<span class="hljs-number">3</span>)
+    G.addEdge(<span class="hljs-number">2</span>,<span class="hljs-number">5</span>)
+    G.addEdge(<span class="hljs-number">4</span>,<span class="hljs-number">5</span>)
+    G.addEdge(<span class="hljs-number">3</span>,<span class="hljs-number">5</span>)
+    <span class="hljs-keyword">print</span> G.getEdgeNum()
+    
+    G.DFSearch()
+    G.BFSearch()
+test()
+
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#图的定义">图的定义</a></li><li><a href="#图的表示">图的表示</a></li><li><a href="#图的遍历">图的遍历</a><ul class="toc-headings"><li><a href="#深度优先搜索">深度优先搜索</a></li><li><a href="#广度优先搜索">广度优先搜索</a></li><li><a href="#举例">举例</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/blog-resources/" class="nav-home"><img src="/blog-resources/img/favicon.ico" alt="Sakura&#x27;s blog" width="66" height="58"/></a><div><h5>Docs</h5><a href="/blog-resources/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/blog-resources/docs/en/doc2.html">Guides (or other categories)</a><a href="/blog-resources/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/blog-resources/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog-resources/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/blog-resources/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Lee Sure(SakuraWood)</section></footer></div></body></html>

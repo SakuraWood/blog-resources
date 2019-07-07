@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>gulp简单用法 · Sakura&#x27;s blog</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;gulp简单用法&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#gulp简单用法&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;gulp简单用法&lt;/h1&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="gulp简单用法 · Sakura&#x27;s blog"/><meta property="og:type" content="website"/><meta property="og:url" content="https://sakurawood.github.io/blog-resources/"/><meta property="og:description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;gulp简单用法&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#gulp简单用法&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;gulp简单用法&lt;/h1&gt;
+"/><meta property="og:image" content="https://sakurawood.github.io/blog-resources/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://sakurawood.github.io/blog-resources/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/blog-resources/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://sakurawood.github.io/blog-resources/blog/atom.xml" title="Sakura&#x27;s blog Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://sakurawood.github.io/blog-resources/blog/feed.xml" title="Sakura&#x27;s blog Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/blog-resources/js/scrollSpy.js"></script><link rel="stylesheet" href="/blog-resources/css/main.css"/><script src="/blog-resources/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/blog-resources/"><img class="logo" src="/blog-resources/img/favicon.ico" alt="Sakura&#x27;s blog"/><h2 class="headerTitleWithLogo">Sakura&#x27;s blog</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/blog-resources/docs/doc1" target="_self">Docs</a></li><li class=""><a href="/blog-resources/docs/doc4" target="_self">API</a></li><li class=""><a href="/blog-resources/help" target="_self">Help</a></li><li class=""><a href="/blog-resources/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">gulp简单用法</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="gulp简单用法"></a><a href="#gulp简单用法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>gulp简单用法</h1>
+<p>不说原理，直接开干</p>
+<p><strong>需了解node</strong>
+稍微介绍一下node：</p>
+<ul>
+<li>package.json(node项目配置文件)，形式如下：</li>
+</ul>
+<pre><code class="hljs css language-json">   {
+
+  "name": "32000", //项目名
+  "version": "0.0.1", //版本号
+  "description": "vrf project", //项目描述
+  "main": "gulpfile.js",//项目入口文件
+  "scripts": {          //脚本命令，可自定义，像这个，我定义了一个start命令用来指                          //向webpack命令
+    "start": "webpack"
+  },
+  "repository": {       //git目录
+    "type": "git",
+    "url": "http://greesmartapp02/susan/air-h5.git"
+  },
+  "keywords": [         //关键词
+    "vrf"
+  ],
+  "author": "susan,hwb,leesure",    //作者
+  "license": "ISC",
+  "devDependencies": {              //依赖插件，用到的所有依赖，相当于android                                       //gradle里面的依赖，懂了吧
+    "browser-sync": "^2.18.8",
+    "css-loader": "^0.28.0",
+    "gulp": "^3.9.1",               //gulp也是node的插件，相当于你用的第三方包，                                    //懂？
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^2.1.2",
+    "gulp-useref": "^3.1.2",
+    "gulp-util": "^3.0.8",
+    "jsx-loader": "^0.13.2",
+    "run-sequence": "^1.2.2",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "url-loader": "^0.5.8",
+    "webpack-stream": "^3.2.0"
+  }
+}
+</code></pre>
+<!-- more -->
+<ul>
+<li>接下来再说一下gulpfile.js,这个呢，就是gulp的配置文件；</li>
+</ul>
+<pre><code class="hljs css language-javascript">
+<span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp'</span>);
+<span class="hljs-comment">//合并文件</span>
+<span class="hljs-keyword">var</span> concat = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-concat'</span>);
+<span class="hljs-comment">//串行执行顺序task</span>
+<span class="hljs-keyword">var</span> runSequence = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-sequence'</span>);
+<span class="hljs-comment">//webpack插件</span>
+<span class="hljs-keyword">var</span> webpack = <span class="hljs-built_in">require</span>(<span class="hljs-string">'webpack'</span>);
+<span class="hljs-comment">//深度压缩图片插件</span>
+<span class="hljs-keyword">var</span> pngquant = <span class="hljs-built_in">require</span>(<span class="hljs-string">'pngquant'</span>);
+<span class="hljs-comment">//删除文件插件</span>
+<span class="hljs-keyword">var</span> del = <span class="hljs-built_in">require</span>(<span class="hljs-string">'del'</span>);
+<span class="hljs-comment">// 合并stream</span>
+<span class="hljs-keyword">var</span> mergeStream=<span class="hljs-built_in">require</span>(<span class="hljs-string">'merge-stream'</span>);
+<span class="hljs-comment">//子任务</span>
+<span class="hljs-keyword">var</span> exec=<span class="hljs-built_in">require</span>(<span class="hljs-string">'child_process'</span>).exec;
+
+<span class="hljs-comment">//压缩图片</span>
+<span class="hljs-keyword">var</span> imagemin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-imagemin'</span>);
+<span class="hljs-comment">//压缩html</span>
+<span class="hljs-keyword">var</span> htmlmin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-htmlmin'</span>);
+<span class="hljs-comment">//压缩css</span>
+<span class="hljs-keyword">var</span> minicss = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-clean-css'</span>);
+<span class="hljs-comment">//压缩js</span>
+<span class="hljs-keyword">var</span> uglify = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-uglify'</span>);
+<span class="hljs-comment">//代替pipe</span>
+<span class="hljs-keyword">var</span> pump = <span class="hljs-built_in">require</span>(<span class="hljs-string">'pump'</span>);
+<span class="hljs-comment">//重命名插件</span>
+<span class="hljs-keyword">var</span> rename = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-rename'</span>);
+<span class="hljs-comment">//文档注释插件</span>
+<span class="hljs-keyword">var</span> jsdoc = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-jsdoc3'</span>);
+<span class="hljs-comment">//单元测试插件jasmine</span>
+<span class="hljs-keyword">var</span> jasmineBrowser = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-jasmine-browser'</span>);
+<span class="hljs-comment">//监视文件变化插件</span>
+<span class="hljs-keyword">var</span> watch = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-watch'</span>);
+
+<span class="hljs-comment">//生成注释文档</span>
+gulp.task(<span class="hljs-string">'doc'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">cb</span>) </span>{
+    <span class="hljs-keyword">var</span> config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./jsdoc-config.json'</span>);
+    gulp.src([<span class="hljs-string">'./app/**/*.js'</span>], {<span class="hljs-attr">read</span>: <span class="hljs-literal">false</span>})
+    <span class="hljs-comment">// gulp.src(['./app/**/*.js'], {read: false})</span>
+        .pipe(jsdoc(config, cb));
+
+});
+
+<span class="hljs-comment">//压缩图片</span>
+gulp.task(<span class="hljs-string">'imgzip'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">callback</span>) </span>{
+    pump(
+        [
+            gulp.src([<span class="hljs-string">'app/**/*.png'</span>, <span class="hljs-string">'app/**/*.jpeg'</span>, <span class="hljs-string">'app/**/*.gif'</span>]),
+            imagemin(
+                {
+                    <span class="hljs-attr">optimizationLevel</span>: <span class="hljs-number">5</span>, <span class="hljs-comment">//类型：Number  默认：3  取值范围：0-7（优化等级）</span>
+                    progressive: <span class="hljs-literal">true</span>,
+                    <span class="hljs-attr">svgoPlugins</span>: [{<span class="hljs-attr">removeViewBox</span>: <span class="hljs-literal">false</span>}],<span class="hljs-comment">//不要移除svg的viewbox属性</span>
+                    use: [pngquant()] <span class="hljs-comment">//使用pngquant深度压缩png图片的imagemin插件</span>
+                }
+            ),
+            gulp.dest(<span class="hljs-string">'dist'</span>)
+        ],
+        callback
+    );
+});
+
+<span class="hljs-comment">//压缩html</span>
+gulp.task(<span class="hljs-string">'htmlzip'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">callback</span>) </span>{
+    pump(
+        [
+            gulp.src(<span class="hljs-string">'app/**/*.html'</span>),
+            htmlmin({
+                <span class="hljs-attr">removeComments</span>: <span class="hljs-literal">true</span>,<span class="hljs-comment">//清除HTML注释</span>
+                collapseWhitespace: <span class="hljs-literal">true</span>,<span class="hljs-comment">//压缩HTML</span>
+                collapseBooleanAttributes: <span class="hljs-literal">true</span>,<span class="hljs-comment">//省略布尔属性的值 &lt;input checked="true"/&gt; ==&gt; &lt;input /&gt;</span>
+                removeEmptyAttributes: <span class="hljs-literal">true</span>,<span class="hljs-comment">//删除所有空格作属性值 &lt;input id="" /&gt; ==&gt; &lt;input /&gt;</span>
+                removeScriptTypeAttributes: <span class="hljs-literal">true</span>,<span class="hljs-comment">//删除&lt;script&gt;的type="text/javascript"</span>
+                removeStyleLinkTypeAttributes: <span class="hljs-literal">true</span>,<span class="hljs-comment">//删除&lt;style&gt;和&lt;link&gt;的type="text/css"</span>
+                minifyJS: <span class="hljs-literal">true</span>,<span class="hljs-comment">//压缩页面JS</span>
+                minifyCSS: <span class="hljs-literal">true</span><span class="hljs-comment">//压缩页面CSS</span>
+            }),
+            gulp.dest(<span class="hljs-string">'dist'</span>)
+        ],
+        callback
+    );
+
+
+});
+
+<span class="hljs-comment">//压缩css</span>
+gulp.task(<span class="hljs-string">'csszip'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">callback</span>) </span>{
+    pump(
+        [
+            gulp.src([<span class="hljs-string">'app/**/*.css'</span>]),
+            minicss(),
+            gulp.dest(<span class="hljs-string">'dist'</span>)
+        ],
+        callback
+    );
+});
+
+<span class="hljs-comment">//压缩js</span>
+gulp.task(<span class="hljs-string">'jszip'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">callback</span>) </span>{
+    pump(
+        [
+            gulp.src(<span class="hljs-string">'app/**/*.js'</span>),
+            uglify(),
+            gulp.dest(<span class="hljs-string">'dist'</span>)
+        ],
+        callback
+    );
+});
+
+gulp.task(<span class="hljs-string">'clear'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> del([<span class="hljs-string">'dist'</span>]);
+});
+
+<span class="hljs-comment">//复制字体</span>
+gulp.task(<span class="hljs-string">'font'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    gulp.src([<span class="hljs-string">'app/**/*.ttf'</span>, <span class="hljs-string">'app/**/*.otf'</span>, <span class="hljs-string">'app/**/*.jar'</span>, <span class="hljs-string">'app/**/*.xml'</span>])
+        .pipe(gulp.dest(<span class="hljs-string">'dist'</span>))
+});
+
+<span class="hljs-comment">//异步执行压缩任务</span>
+gulp.task(<span class="hljs-string">'default'</span>,
+    runSequence(<span class="hljs-string">'clear'</span>,[<span class="hljs-string">'parsezip'</span>, <span class="hljs-string">'imgzip'</span>, <span class="hljs-string">'htmlzip'</span>, <span class="hljs-string">'csszip'</span>, <span class="hljs-string">'jszip'</span>, <span class="hljs-string">'font'</span>,<span class="hljs-string">'doc'</span>],<span class="hljs-string">'copy'</span>
+    )
+
+);
+
+<span class="hljs-comment">//复制到android工程</span>
+<span class="hljs-comment">//测试用</span>
+gulp.task(<span class="hljs-string">'copyto'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    gulp.src(<span class="hljs-string">'app/**/*'</span>)
+        .pipe(gulp.dest(<span class="hljs-string">'../assets/release/Plugins/32000'</span>))
+});
+<span class="hljs-comment">//正式用</span>
+gulp.task(<span class="hljs-string">'copy'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    gulp.src(<span class="hljs-string">'dist/**/*'</span>)
+        .pipe(gulp.dest(<span class="hljs-string">'../assets/release/Plugins/32000'</span>))
+});
+
+<span class="hljs-comment">//单元测试</span>
+gulp.task(<span class="hljs-string">'jasmine'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> files = [<span class="hljs-string">'./test/src/**/*.js'</span>, <span class="hljs-string">'./test/spec/**/*.js'</span>, <span class="hljs-string">'app/js/**/*.js'</span>];
+    <span class="hljs-keyword">return</span> gulp.src(files)
+        .pipe(watch(files))
+        .pipe(jasmineBrowser.specRunner())
+        .pipe(jasmineBrowser.server({<span class="hljs-attr">port</span>: <span class="hljs-number">9199</span>}))
+});
+
+<span class="hljs-comment">//合并json中的js</span>
+gulp.task(<span class="hljs-string">'parsezip'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">callback</span>) </span>{
+    pump(
+        [
+            gulp.src([<span class="hljs-string">'app/js/json/state-inner.js'</span>,
+                <span class="hljs-string">'app/js/json/state-outdoor.js'</span>,
+                <span class="hljs-string">'app/js/json/state-basic.js'</span>,
+                <span class="hljs-string">'app/js/json/hex-unit.js'</span>,
+                <span class="hljs-string">'app/js/json/hex-parse-inner.js'</span>,
+                <span class="hljs-string">'app/js/json/hex-parse-outdoor.js'</span>,
+                <span class="hljs-string">'app/js/json/hex-parse-basic.js'</span>,
+                <span class="hljs-string">'app/js/json/json-parse-frame.js'</span>,
+                <span class="hljs-string">'app/js/json/json-send-frame.js'</span>]),
+            concat(<span class="hljs-string">'parsedata.min.js'</span>),
+            gulp.dest(<span class="hljs-string">'app/js/json'</span>)
+        ],
+        callback
+    );
+});
+
+</code></pre>
+<ul>
+<li>执行npm install</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/blog-resources/" class="nav-home"><img src="/blog-resources/img/favicon.ico" alt="Sakura&#x27;s blog" width="66" height="58"/></a><div><h5>Docs</h5><a href="/blog-resources/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/blog-resources/docs/en/doc2.html">Guides (or other categories)</a><a href="/blog-resources/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/blog-resources/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog-resources/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/blog-resources/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Lee Sure(SakuraWood)</section></footer></div></body></html>
